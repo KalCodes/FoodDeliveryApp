@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "703533874515",
+    "project_id": "foodorderapp-df3f2",
+    "storage_bucket": "foodorderapp-df3f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703533874515:android:2d8c16e810d5afff2935a6",
+        "android_client_info": {
+          "package_name": "com.kalcodes.fooddelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "703533874515-8ikh7g17hfdi6osoq6d7bk1enhu2v4cq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNUZHCsOi6jOb-n6CCH5426Li7NvY2mNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "703533874515-8ikh7g17hfdi6osoq6d7bk1enhu2v4cq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
