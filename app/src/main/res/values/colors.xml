@@ -15,5 +15,6 @@
     <color name="colorBlack">#1E1E1E</color> <!-- We will no use the regular #000000 -->
     <color name="colorWhite">#FFFFFF</color>
 
-    <color name="primary">#01AED8</color>
+<!--    <color name="primary">#01AED8</color>-->
+    <color name="primary">#F3752B</color>
 </resources>

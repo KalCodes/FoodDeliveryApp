@@ -4,31 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/primary"
     tools:context=".SplashActivity">
 
     <TextView
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Food Delivery"
-        android:textColor="@color/black"
-        android:textSize="34sp"
+        android:text="Foodly"
+        android:textColor="@color/white"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="349dp"
-        android:layout_height="215dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="420dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/sapiens" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
