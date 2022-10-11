@@ -11,7 +11,7 @@
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Foodly"
+        android:text="ET-Food"
         android:textColor="@color/white"
         android:textSize="50sp"
         android:textStyle="bold"
