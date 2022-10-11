@@ -1,4 +1,4 @@
-package com.kalcodes.fooddelivery;
+package com.kalcodes.fooddelivery.model;
 
 public class User {
     public String fullName, email , phone;

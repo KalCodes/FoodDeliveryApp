@@ -1,12 +1,9 @@
 package com.kalcodes.fooddelivery;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -20,6 +17,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         mAuth = FirebaseAuth.getInstance();
+//        getSupportActionBar(),setTitle("ghg");
 
 
         new Handler().postDelayed(new Runnable() {
