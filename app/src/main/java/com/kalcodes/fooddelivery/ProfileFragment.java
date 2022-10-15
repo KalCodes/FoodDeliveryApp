@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.kalcodes.fooddelivery.model.User;
 
 
 public class ProfileFragment extends Fragment {
@@ -40,6 +41,8 @@ public class ProfileFragment extends Fragment {
 
          view = inflater.inflate(R.layout.fragment_profile, container, false);
         logOutBtn = view.findViewById(R.id.logOutBtn);
+
+        requireActivity().setTitle("Profile");
 
         logOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +69,7 @@ public class ProfileFragment extends Fragment {
                     String email = userProfile.email;
                     String phone = userProfile.phone;
 
-                    userFullName.setText("Name "+ fullname);
+                    userFullName.setText("Full Name "+ fullname);
                     userEmail.setText("Email "+ email);
                     userPhone.setText("Phone " + phone);
                 }
