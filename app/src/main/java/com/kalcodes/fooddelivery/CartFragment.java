@@ -105,10 +105,11 @@ public class CartFragment extends Fragment implements ICartLoadListener {
         txtTotal.setText(new StringBuilder("$").append(sum));
         MyCartAdapter adapter = new MyCartAdapter(this.getContext(),cartModelList);
         recyclerCart.setAdapter(adapter);
+
     }
 
     @Override
     public void onCartLoadFailed(String message) {
-        Snackbar.make(mainLayout,message,Snackbar.LENGTH_LONG).show();
+        Snackbar.make(view,message,Snackbar.LENGTH_LONG).show();
     }
 }

@@ -1,98 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="12dp"
-    android:padding="8dp"
-    android:layout_margin="8dp"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    app:cardCornerRadius="15dp"
+    android:elevation="5dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
     android:layout_height="wrap_content">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="5"
-        android:padding="16dp">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:layout_weight="1"
-            android:id="@+id/imageView"/>
-        <LinearLayout
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/txtPrice"
+            android:adjustViewBounds="true"
+            android:paddingTop="2dp"
+            android:id="@+id/btnDelete"
+            android:src="@drawable/ic_baseline_delete_24"/>
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="102dp"
+            android:layout_height="84dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/txtName"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:weightSum="5"
-            android:layout_weight="4"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:orientation="vertical">
+            android:text="Float Cake Vietnam"
+            android:textColor="#091020"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/restorant_name"
+            app:layout_constraintTop_toBottomOf="@+id/restorant_name" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:textStyle="bold"
-                    android:textSize="30sp"
-                    android:text="name"
-                    android:id="@+id/txtName"/>
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:orientation="horizontal">
+            android:text="$6.05"
+            android:textColor="#FF6813"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnMinus"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:id="@+id/btnMinus"
-                        android:src="@drawable/ic_baseline_indeterminate_check_box_24"/>
+        <TextView
+            android:id="@+id/restorant_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:gravity="bottom"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:text="1"
-                        android:id="@+id/txtQuantity"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:id="@+id/btnPlus"
-                        android:src="@drawable/ic_baseline_add_box_24"/>
+            android:text="TextView"
+            android:textColor="#F06941"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                </LinearLayout>
+        <ImageView
+            android:id="@+id/btnPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="9dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtQuantity"
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:text="$1"
-                    android:id="@+id/txtPrice"/>
 
-            </RelativeLayout>
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/btnDelete"
-                android:src="@drawable/ic_baseline_clear_24"/>
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            app:srcCompat="@drawable/ic_baseline_add_box_24" />
 
-        </LinearLayout>
+        <TextView
+            android:id="@+id/txtQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
 
-    </LinearLayout>
+            android:text="1"
+            app:layout_constraintBottom_toBottomOf="@+id/btnMinus"
+            app:layout_constraintStart_toEndOf="@+id/btnMinus"
+            app:layout_constraintTop_toTopOf="@+id/btnMinus" />
 
+
+        <ImageView
+            android:id="@+id/btnMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txtName"
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            app:srcCompat="@drawable/ic_baseline_indeterminate_check_box_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

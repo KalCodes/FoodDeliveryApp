@@ -1,17 +1,19 @@
 package com.kalcodes.fooddelivery;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -33,12 +35,9 @@ import com.kalcodes.fooddelivery.utils.SpaceItemDecoration;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HomeFragment extends Fragment implements IFoodLoadListener, ICartLoadListener {
@@ -68,6 +67,7 @@ public class HomeFragment extends Fragment implements IFoodLoadListener, ICartLo
         EventBus.getDefault().unregister(this);
         super.onStop();
     }
+
     @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
     public void onUpdate(MyUpdateCartEvent event){
         countCartItem();
@@ -79,11 +79,13 @@ public class HomeFragment extends Fragment implements IFoodLoadListener, ICartLo
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
+
         requireActivity().setTitle("ET-Food");
+
         recyclerFood = view.findViewById(R.id.recyclerFood);
          mainLayout = view.findViewById(R.id.mainLayout);
-
-        getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//
+//        getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         imageSlider = view.findViewById(R.id.imageSlider);
         final List<SlideModel> remoteimages = new ArrayList<>();
@@ -93,7 +95,7 @@ public class HomeFragment extends Fragment implements IFoodLoadListener, ICartLo
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for(DataSnapshot data:dataSnapshot.getChildren()){
-                            remoteimages.add(new SlideModel(data.child("url").getValue().toString(),data.child("title").getValue().toString(), ScaleTypes.FIT ));
+                            remoteimages.add(new SlideModel(data.child("url").getValue().toString(), ScaleTypes.FIT ));
 
                             imageSlider.setImageList(remoteimages,ScaleTypes.FIT);
                         }
@@ -146,10 +148,16 @@ public class HomeFragment extends Fragment implements IFoodLoadListener, ICartLo
         foodLoadListener = this;
         cartLoadListener = this;
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this.getContext(), 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this.getContext(),2);
         recyclerFood.setLayoutManager(gridLayoutManager);
-        recyclerFood.addItemDecoration(new SpaceItemDecoration());
+//        recyclerFood.addItemDecoration(new SpaceItemDecoration());
 
+//        GridLayoutManager gridLayoutManager = new GridLayoutManager(this.getContext(),2,LinearLayoutManager.VERTICAL,false);
+
+
+
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false);
+//        recyclerFood.setLayoutManager(layoutManager);
 
     }
 
@@ -161,7 +169,7 @@ public class HomeFragment extends Fragment implements IFoodLoadListener, ICartLo
 
     @Override
     public void onFoodLoadFailed(String message) {
-        Snackbar.make(mainLayout,message,Snackbar.LENGTH_LONG).show();
+        Snackbar.make(view,message,Snackbar.LENGTH_LONG).show();
     }
 
     @Override

@@ -43,21 +43,17 @@ public class LoginActivity extends AppCompatActivity {
                 if(emailTxt.isEmpty()){
                     email.setError("Email is required");
                     email.requestFocus();
-                    return;
 
                 }else if (!Patterns.EMAIL_ADDRESS.matcher(emailTxt).matches()){
                     email.setError("Please provide valid email");
                     email.requestFocus();
-                    return;
 
                 }else if(passwordTxt.isEmpty()){
                     password.setError("Password is required");
                     password.requestFocus();
-                    return;
                 }else if (password.length() < 6){
                     password.setError("Min password length should be 6 ");
                     password.requestFocus();
-                    return;
 
                 }else {
                     mAuth.signInWithEmailAndPassword(emailTxt,passwordTxt).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -66,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 startActivity(new Intent(LoginActivity.this,MainActivity.class));
                             }else {
-                                Toast.makeText(LoginActivity.this, "Failed to login! Please check your password", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Failed to login! Please check your internet", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
