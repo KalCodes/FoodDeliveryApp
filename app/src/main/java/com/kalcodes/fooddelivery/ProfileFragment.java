@@ -69,9 +69,9 @@ public class ProfileFragment extends Fragment {
                     String email = userProfile.email;
                     String phone = userProfile.phone;
 
-                    userFullName.setText("Full Name "+ fullname);
-                    userEmail.setText("Email "+ email);
-                    userPhone.setText("Phone " + phone);
+                    userFullName.setText(fullname);
+                    userEmail.setText(email);
+                    userPhone.setText(phone);
                 }
             }
 
