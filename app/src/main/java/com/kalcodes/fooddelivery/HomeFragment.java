@@ -119,7 +119,7 @@ public class HomeFragment extends Fragment implements IFoodLoadListener, ICartLo
     private void loadFoodFromFirebase() {
         List<FoodModel> foodModels = new ArrayList<>();
         FirebaseDatabase.getInstance().
-                getReference("Drink")
+                getReference("Food")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

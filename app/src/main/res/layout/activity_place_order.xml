@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlaceOrderActivity"
+    android:id="@+id/container">
+
+
+<!--    android:background="#e7e7e7"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:weightSum="16"
+        android:orientation="horizontal"
+        android:id="@+id/panel"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start|center_vertical"
+            android:src="@drawable/ic_baseline_navigate_before_24"
+            android:layout_marginStart="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginStart="43dp"
+            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"
+            android:text="Place Order"
+            android:id="@+id/txtPrice"/>
+
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/shippingTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shipping to"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/panel"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="12dp"
+        android:textSize="17sp"/>
+
+    <EditText
+        android:id="@+id/Home"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
+        android:background="@drawable/round_back_dark5_15"
+        android:hint="Home"
+        android:inputType="textEmailAddress"
+        android:textSize="16sp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shippingTo"/>
+
+    <TextView
+        android:id="@+id/building"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Building"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/Home"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/bulid"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
+        android:background="@drawable/round_back_dark5_15"
+        android:hint="Building Number"
+        android:inputType="textEmailAddress"
+        android:textSize="16sp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/building"/>
+
+    <EditText
+        android:id="@+id/payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment Method"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/bulid"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        />
+
+    <EditText
+        android:id="@+id/ON"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ON Delivery"
+        app:layout_constraintTop_toBottomOf="@id/payment"
+        app:layout_constraintStart_toStartOf="parent"
+       android:textColor="@color/primary"
+        android:layout_marginStart="40dp"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/order"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:text="Order"
+        android:textSize="20dp"
+        android:textAllCaps="false"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/round_back_primary_15"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/ON"/>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

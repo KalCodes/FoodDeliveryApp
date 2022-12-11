@@ -1,14 +1,17 @@
 package com.kalcodes.fooddelivery;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.WindowCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,10 +37,11 @@ public class CartFragment extends Fragment implements ICartLoadListener {
     public CartFragment() {
         // Required empty public constructor
     }
+    LinearLayout layoutPay;
     RecyclerView recyclerCart;
     RecyclerView mainLayout;
     TextView txtTotal;
-
+    Button button;
     View view;
 
     ICartLoadListener cartLoadListener;
@@ -48,8 +52,23 @@ public class CartFragment extends Fragment implements ICartLoadListener {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_cart, container, false);
 
+
+
+
+
+        button = view.findViewById(R.id.pay);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), PlaceOrderActivity.class);
+                startActivity(intent);
+            }
+        });
+
         requireActivity().setTitle("Cart");
 
+
+        layoutPay = view.findViewById(R.id.layoutPay);
         recyclerCart = view.findViewById(R.id.recycler_cart);
         mainLayout = view.findViewById(R.id.mainLayout);
         txtTotal = view.findViewById(R.id.txtTotal);
@@ -63,6 +82,8 @@ public class CartFragment extends Fragment implements ICartLoadListener {
 
     private void loadCartFromFirebase() {
         List<CartModel> cartModels = new ArrayList<>();
+
+
         FirebaseDatabase.getInstance().getReference("Cart")
                 .child("UNIQUE_USER_ID")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -78,6 +99,7 @@ public class CartFragment extends Fragment implements ICartLoadListener {
                         }
                         else
                             cartLoadListener.onCartLoadFailed("Cart empty");
+                        //layoutPay.setVisibility(View.GONE);
                     }
 
                     @Override
@@ -111,5 +133,7 @@ public class CartFragment extends Fragment implements ICartLoadListener {
     @Override
     public void onCartLoadFailed(String message) {
         Snackbar.make(view,message,Snackbar.LENGTH_LONG).show();
+        layoutPay.setVisibility(View.GONE);
     }
+
 }

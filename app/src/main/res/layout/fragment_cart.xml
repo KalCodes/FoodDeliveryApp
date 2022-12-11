@@ -49,7 +49,7 @@
 
 
     <LinearLayout
-        android:id="@+id/relative1"
+        android:id="@+id/layoutPay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -117,12 +117,13 @@
             android:layout_marginHorizontal="25dp"/>
 
         <Button
+            android:id="@+id/pay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
             android:layout_marginTop="25dp"
-            android:text="Pay"
             android:background="@drawable/round_back_primary_15"
-            android:layout_marginHorizontal="25dp"/>
+            android:text="Pay" />
 
 
 
